@@ -10,4 +10,6 @@ per(D, How_much, Ostatok, Ostatok__) :- Not_Nool is Ostatok mod D, Not_Nool \= 0
   Ostatok1 is Not_Nool, Ostatok2 is Ostatok1*10, Ostatok3 is Ostatok2+9, per(D, How_much1, Ostatok3, Ostatok__),
   How_much is How_much1+1.
 per(_, 0, Ostatok, Ostatok) :- !.
- 
+len(1,0) :- !.
+len(D, Length_of_per):- pred_per(D, _, 2, New_D), pred_per(New_D, _, 5, New_D1), 
+  per(New_D1, How_much, 9, _), Length_of_per is How_much+1,!.
