@@ -13,4 +13,7 @@ per(_, 0, Ost, Ost) :- !.
 len(1,0) :- !.
 len(D, Len_per):- pred_per(D, _, 2, New_D), pred_per(New_D, _, 5, New_D1), 
   per(New_D1, How_much, 9, _), Len_per is How_much+1,!.
- 
+res(D,R,M,N):- res(D,R,0,M,0, N).
+res(D,R,M1,M,N1,N):- D >= R, M is M1, N is N1,!.  
+res(D,R,M1,M,N1,N):- len(D, Len), maxim(Len, M1, M2, D, N1, N2),
+  D1 is D+1, res(D1,R,M2,M,N2,N).
