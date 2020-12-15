@@ -17,3 +17,6 @@ res(D,R,M,N):- res(D,R,0,M,0, N).
 res(D,R,M1,M,N1,N):- D >= R, M is M1, N is N1,!.  
 res(D,R,M1,M,N1,N):- len(D, Len), maxim(Len, M1, M2, D, N1, N2),
   D1 is D+1, res(D1,R,M2,M,N2,N).
+main :- res(1,1000, M, N),
+  write("Число "), writeln(N),
+  write("Длина периода "), write(M),!. 
